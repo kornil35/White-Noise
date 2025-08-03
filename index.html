@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>White Noise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      height: 100%;
+      overflow: hidden;
+      touch-action: none;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    h1 {
+      font-weight: 600;
+      font-size: 1.5rem;
+      margin: 0;
+      text-align: center;
+    }
+
+    button {
+      background: none;
+      border: 2px solid #fff;
+      color: #fff;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #222;
+    }
+  </style>
+</head>
+<body>
+  <h1>White Noise for Sleep</h1>
+  <button id="toggle">Play</button>
+
+  <audio id="audio" src="white-noise.mp3" loop></audio>
+
+  <script>
+    const btn = document.getElementById('toggle');
+    const audio = document.getElementById('audio');
+
+    let isPlaying = false;
+
+    btn.addEventListener('click', () => {
+      if (isPlaying) {
+        audio.pause();
+        btn.textContent = 'Play';
+      } else {
+        audio.play();
+        btn.textContent = 'Stop';
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
+</body>
+</html>
