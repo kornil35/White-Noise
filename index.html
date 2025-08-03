@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>White Noise</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    button {
+      background: none;
+      border: 2px solid #fff;
+      color: #fff;
+      font-size: 1.5rem;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #222;
+    }
+  </style>
+</head>
+<body>
+  <button id="toggle">Play</button>
+
+  <audio id="audio" src="white-noise.mp3" loop></audio>
+
+  <script>
+    const btn = document.getElementById('toggle');
+    const audio = document.getElementById('audio');
+
+    let isPlaying = false;
+
+    btn.addEventListener('click', () => {
+      if (isPlaying) {
+        audio.pause();
+        btn.textContent = 'Play';
+      } else {
+        audio.play();
+        btn.textContent = 'Stop';
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
+</body>
+</html>
